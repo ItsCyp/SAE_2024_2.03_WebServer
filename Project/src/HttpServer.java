@@ -81,6 +81,7 @@ public class HttpServer {
                                 sendFileResponse(writer, out, file);
                             } else {
                                 sendErrorResponse(writer, 404, "Not Found");
+                                Logs.logError("Fichier non trouvé : " + filePath);
                             }
                         }
 
@@ -115,6 +116,7 @@ public class HttpServer {
         out.write(fileData);
         out.flush();
     }
+
 
     private static void sendErrorResponse(BufferedWriter writer, int statusCode, String statusMessage) throws IOException {
         writer.write("HTTP/1.1 " + statusCode + " " + statusMessage + "\r\n");

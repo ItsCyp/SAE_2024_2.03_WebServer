@@ -1,34 +1,36 @@
+import java.io.File;
 import java.lang.management.ManagementFactory;
+import java.lang.management.OperatingSystemMXBean;
 
 public class MachineStatus {
 
     public static String getStatusHtml(int connectionCount) {
         Runtime runtime = Runtime.getRuntime();
+        OperatingSystemMXBean osBean = ManagementFactory.getOperatingSystemMXBean();
         long freeMemory = runtime.freeMemory();
-        double systemLoad = ManagementFactory.getOperatingSystemMXBean().getSystemLoadAverage();
+        long totalMemory = runtime.totalMemory();
+        long maxMemory = runtime.maxMemory();
+        long usedMemory = totalMemory - freeMemory;
+        double systemLoad = osBean.getSystemLoadAverage();
 
-        // Déterminer l'état général
-        String status;
-        if (freeMemory < 100 * 1024 * 1024) { // Exemple : moins de 100 Mo de mémoire libre
-            status = "Mauvais";
-        } else if (systemLoad > 0.8) { // Exemple : charge système supérieure à 80%
-            status = "Mauvais";
-        } else {
-            status = "Bon";
+        File[] roots = File.listRoots();
+        long freeSpace = 0;
+        for (File root : roots) {
+            freeSpace += root.getFreeSpace();
         }
+
+        int processCount = ManagementFactory.getOperatingSystemMXBean().getAvailableProcessors();
 
         StringBuilder html = new StringBuilder();
         html.append("<html><head><meta charset=\"UTF-8\"></head><body>");
-        html.append("<h1>État de la machine</h1>");
-        html.append("<p>État général: ").append(status).append("</p>");
-        html.append("<p>Mémoire libre: ").append(freeMemory).append(" bytes</p>");
-        html.append("<p>Charge système moyenne: ").append(systemLoad).append("</p>");
+        html.append("<h1>État du serveur</h1>");
+        html.append("<p>Mémoire disponible: ").append(freeMemory).append(" bytes</p>");
+        html.append("<p>Espace disque disponible: ").append(freeSpace).append(" bytes</p>");
+        html.append("<p>Nombre de processus: ").append(processCount).append("</p>");
         html.append("<p>Nombre de connexions actives: ").append(connectionCount).append("</p>");
         html.append("</body></html>");
 
         return html.toString();
     }
-
-
 
 }

@@ -1,4 +1,68 @@
-juin 13, 2024 10:06:11 AM Logs logAccess
+juin 13, 2024 11:07:34 AM Logs logAccess
 INFO: Serveur démarré sur le port 8080
-juin 13, 2024 10:06:15 AM Logs logAccess
-INFO: GET /status HTTP/1.1
+juin 13, 2024 11:07:39 AM Logs logAccess
+INFO: GET /miniWeb.html HTTP/1.1
+juin 13, 2024 11:07:39 AM Logs logAccess
+INFO: GET /images/n2.jpg HTTP/1.1
+juin 13, 2024 11:07:46 AM Logs logAccess
+INFO: GET /miniWeb.html HTTP/1.1
+juin 13, 2024 11:07:46 AM Logs logAccess
+INFO: GET /images/n2.jpg HTTP/1.1
+juin 13, 2024 11:07:47 AM Logs logAccess
+INFO: GET /technique.html HTTP/1.1
+juin 13, 2024 11:07:47 AM Logs logAccess
+INFO: GET /images/l1.gif HTTP/1.1
+juin 13, 2024 11:10:53 AM Logs logAccess
+INFO: Serveur démarré sur le port 8080
+juin 13, 2024 11:10:57 AM Logs logAccess
+INFO: GET /technique.html HTTP/1.1
+juin 13, 2024 11:10:57 AM Logs logAccess
+INFO: GET /images/l1.gif HTTP/1.1
+juin 13, 2024 11:11:00 AM Logs logAccess
+INFO: GET /miniWeb.html HTTP/1.1
+juin 13, 2024 11:11:00 AM Logs logAccess
+INFO: GET /images/n2.jpg HTTP/1.1
+juin 13, 2024 11:11:03 AM Logs logAccess
+INFO: GET /miniWeb.html HTTP/1.1
+juin 13, 2024 11:11:03 AM Logs logAccess
+INFO: GET /images/n2.jpg HTTP/1.1
+juin 13, 2024 11:12:20 AM Logs logAccess
+INFO: Serveur démarré sur le port 8080
+juin 13, 2024 11:12:29 AM Logs logAccess
+INFO: Serveur démarré sur le port 8080
+juin 13, 2024 11:12:32 AM Logs logAccess
+INFO: GET / HTTP/1.1
+juin 13, 2024 11:12:34 AM Logs logAccess
+INFO: GET /miniWeb.html HTTP/1.1
+juin 13, 2024 11:12:34 AM Logs logAccess
+INFO: GET /images/n2.jpg HTTP/1.1
+juin 13, 2024 11:12:36 AM Logs logAccess
+INFO: GET /technique.html HTTP/1.1
+juin 13, 2024 11:12:36 AM Logs logAccess
+INFO: GET /images/l1.gif HTTP/1.1
+juin 13, 2024 11:15:36 AM Logs logAccess
+INFO: GET / HTTP/1.1
+juin 13, 2024 11:15:38 AM Logs logAccess
+INFO: GET /miniWeb.html HTTP/1.1
+juin 13, 2024 11:15:38 AM Logs logAccess
+INFO: GET /images/n2.jpg HTTP/1.1
+juin 13, 2024 11:15:38 AM Logs logAccess
+INFO: GET /videos/Video.mp4 HTTP/1.1
+juin 13, 2024 11:16:26 AM Logs logAccess
+INFO: GET / HTTP/1.1
+juin 13, 2024 11:16:29 AM Logs logAccess
+INFO: GET /miniWeb.html HTTP/1.1
+juin 13, 2024 11:16:29 AM Logs logAccess
+INFO: GET /images/n2.jpg HTTP/1.1
+juin 13, 2024 11:16:29 AM Logs logAccess
+INFO: GET /videos/Video.mp4 HTTP/1.1
+juin 13, 2024 11:16:51 AM Logs logAccess
+INFO: Serveur démarré sur le port 8080
+juin 13, 2024 11:16:53 AM Logs logAccess
+INFO: GET /miniWeb.html HTTP/1.1
+juin 13, 2024 11:16:53 AM Logs logAccess
+INFO: GET /images/n2.jpg HTTP/1.1
+juin 13, 2024 11:16:53 AM Logs logAccess
+INFO: GET /videos/Video.mp4 HTTP/1.1
+juin 13, 2024 11:17:19 AM Logs logAccess
+INFO: GET /favicon.ico HTTP/1.1
