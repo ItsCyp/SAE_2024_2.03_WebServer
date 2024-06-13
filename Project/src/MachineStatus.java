@@ -6,12 +6,7 @@ public class MachineStatus {
 
     public static String getStatusHtml(int connectionCount) {
         Runtime runtime = Runtime.getRuntime();
-        OperatingSystemMXBean osBean = ManagementFactory.getOperatingSystemMXBean();
         long freeMemory = runtime.freeMemory();
-        long totalMemory = runtime.totalMemory();
-        long maxMemory = runtime.maxMemory();
-        long usedMemory = totalMemory - freeMemory;
-        double systemLoad = osBean.getSystemLoadAverage();
 
         File[] roots = File.listRoots();
         long freeSpace = 0;

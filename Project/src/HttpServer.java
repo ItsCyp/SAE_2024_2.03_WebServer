@@ -2,7 +2,9 @@ import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.nio.file.Files;
+import java.util.Base64;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -67,9 +69,9 @@ public class HttpServer {
                         }
 
                         String filePath = requestLineParts[1];
-                        if(filePath.equals("/status")) {
+                        if (filePath.equals("/status")) {
                             sendStatusResponse(writer);
-                        }else{
+                        } else {
                             if (filePath.equals("/")) {
                                 filePath = "/index.html";
                             }
@@ -87,6 +89,9 @@ public class HttpServer {
 
                     } catch (IOException e) {
                         Logs.logError("Erreur de lecture de la requête : " + e.getMessage());
+                        if(e instanceof SocketException){
+                            Logs.logError("Information supplémentaire : " + e);
+                        }
                     } finally {
                         connectionCount--;
                     }
@@ -100,12 +105,12 @@ public class HttpServer {
     }
 
     private static void sendFileResponse(BufferedWriter writer, OutputStream out, File file) throws IOException {
-        String mimeType = Files.probeContentType(file.toPath());
-        if (mimeType == null) {
-            mimeType = "application/octet-stream";
-        }
-
+        String mimeType = getMimeType(file);
         byte[] fileData = Files.readAllBytes(file.toPath());
+
+        if (mimeType.startsWith("image/") || mimeType.startsWith("video/") || mimeType.startsWith("audio/")) {
+            fileData = Base64.getEncoder().encode(fileData);
+        }
 
         writer.write("HTTP/1.1 200 OK\r\n");
         writer.write("Content-Type: " + mimeType + "\r\n");
@@ -117,6 +122,36 @@ public class HttpServer {
         out.flush();
     }
 
+    private static String getMimeType(File file) {
+        String extension = "";
+
+        String fileName = file.getName();
+        int i = fileName.lastIndexOf('.');
+        if (i > 0) {
+            extension = fileName.substring(i + 1);
+        }
+
+        switch (extension) {
+            case "html":
+                return "text/html";
+            case "css":
+                return "text/css";
+            case "jpg":
+            case "jpeg":
+                return "image/jpeg";
+            case "png":
+                return "image/png";
+            case "gif":
+                return "image/gif";
+            case "mp4":
+                return "video/mp4";
+            case "mp3":
+                return "audio/mpeg";
+            // Add more cases as needed
+            default:
+                return "application/octet-stream";
+        }
+    }
 
     private static void sendErrorResponse(BufferedWriter writer, int statusCode, String statusMessage) throws IOException {
         writer.write("HTTP/1.1 " + statusCode + " " + statusMessage + "\r\n");
