@@ -1,0 +1,13 @@
+<webconf>
+    <port>8080</port>
+    <root>src/site</root>
+    <accept>
+        192.168.0.0/24
+        192.168.0.1/24
+    </accept>
+    <reject>
+        192.168.1.0/24
+    </reject>
+    <acceslog>src/access.log</acceslog>
+    <errorlog>src/error.log</errorlog>
+</webconf>

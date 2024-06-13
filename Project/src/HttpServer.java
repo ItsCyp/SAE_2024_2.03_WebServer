@@ -1,23 +1,55 @@
 import java.io.*;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.file.Files;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class HttpServer {
+    private static int port;
+    private static String rootDirectory;
+    private static String accessLogPath;
+    private static String errorLogPath;
+    private static Set<String> acceptIPs = new HashSet<>();
+    private static Set<String> rejectIPs = new HashSet<>();
     private static final int DEFAULT_PORT = 80;
-    private static final String ROOT_DIRECTORY = "src/site";
+    private static int connectionCount = 0;
 
     public static void main(String[] args) {
-        int port = DEFAULT_PORT;
-        if (args.length > 0) {
-            port = Integer.parseInt(args[0]);
+        try {
+            Map<String, String> config = ConfigLoader.loadConfig("src/config.xml");
+            port = Integer.parseInt(config.get("port"));
+            rootDirectory = config.get("rootDirectory");
+            accessLogPath = config.get("accessLogPath");
+            errorLogPath = config.get("errorLogPath");
+
+            for (int i = 0; config.containsKey("acceptIP" + i); i++) {
+                acceptIPs.add(config.get("acceptIP" + i));
+            }
+
+            for (int i = 0; config.containsKey("rejectIP" + i); i++) {
+                rejectIPs.add(config.get("rejectIP" + i));
+            }
+            Log.setupLog(accessLogPath, errorLogPath);
+        } catch (Exception e) {
+            Log.logError("Erreur de chargement de la configuration : " + e.getMessage());
+            port = DEFAULT_PORT;
         }
 
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            System.out.println("Server connecter au port " + port);
+            Log.logAccess("Serveur démarré sur le port " + port);
 
             while (true) {
                 try (Socket socket = serverSocket.accept()) {
+                    connectionCount++;
+                    if (!isAccepted(socket.getInetAddress())) {
+                        socket.close();
+                        connectionCount--;
+                        continue;
+                    }
+
                     try (BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                          OutputStream out = socket.getOutputStream();
                          BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out))
@@ -26,36 +58,43 @@ public class HttpServer {
                         if (requestLine == null || requestLine.isEmpty()) {
                             return;
                         }
-                        System.out.println("Requete : " + requestLine);
+                        Log.logAccess(requestLine); //mettre dans un fichier /access.log
 
                         String[] requestLineParts = requestLine.split(" ");
                         if (requestLineParts.length < 2) {
-                            System.out.println("Requete invalide");
+                            Log.logError("Requête invalide : " + requestLine);
                             continue;
                         }
 
                         String filePath = requestLineParts[1];
-                        if (filePath.equals("/")) {
-                            filePath = "/index.html";
+                        if(filePath.equals("/status")) {
+                            sendStatusResponse(writer);
+                        }else{
+                            if (filePath.equals("/")) {
+                                filePath = "/index.html";
+                            }
+
+                            filePath = rootDirectory + filePath;
+
+                            File file = new File(filePath);
+                            if (file.exists() && !file.isDirectory()) {
+                                sendFileResponse(writer, out, file);
+                            } else {
+                                sendErrorResponse(writer, 404, "Not Found");
+                            }
                         }
 
-                        filePath = ROOT_DIRECTORY + filePath;
-
-                        File file = new File(filePath);
-                        if (file.exists() && !file.isDirectory()) {
-                            sendFileResponse(writer, out, file);
-                        } else {
-                            sendErrorResponse(writer, 404, "Not Found");
-                        }
                     } catch (IOException e) {
-                        System.out.println("Erreur de traitement de la requête : " + e.getMessage());
+                        Log.logError("Erreur de lecture de la requête : " + e.getMessage());
+                    } finally {
+                        connectionCount--;
                     }
                 } catch (IOException e) {
-                    System.out.println("Erreur de connection client : " + e.getMessage());
+                    Log.logError("Erreur de connection client : " + e.getMessage());
                 }
             }
         } catch (IOException e) {
-            System.out.println("Erreur server : " + e.getMessage());
+            Log.logError("Erreur de connection serveur : " + e.getMessage());
         }
     }
 
@@ -82,6 +121,26 @@ public class HttpServer {
         writer.write("Content-Type: text/html\r\n");
         writer.write("\r\n");
         writer.write("<html><body><h1>" + statusCode + " " + statusMessage + "</h1></body></html>");
+        writer.flush();
+    }
+
+    private static boolean isAccepted(InetAddress clientAddress) {
+        String clientIP = clientAddress.getHostAddress();
+        if (rejectIPs.contains(clientIP)) {
+            return false;
+        }
+        if (acceptIPs.isEmpty() || acceptIPs.contains(clientIP)) {
+            return true;
+        }
+        return false;
+    }
+
+    private static void sendStatusResponse(BufferedWriter writer) throws IOException {
+        String statusHtml = MachineStatus.getStatusHtml(connectionCount);
+        writer.write("HTTP/1.1 200 OK\r\n");
+        writer.write("Content-Type: text/html\r\n");
+        writer.write("\r\n");
+        writer.write(statusHtml);
         writer.flush();
     }
 }
