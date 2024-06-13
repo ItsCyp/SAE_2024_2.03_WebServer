@@ -32,14 +32,14 @@ public class HttpServer {
             for (int i = 0; config.containsKey("rejectIP" + i); i++) {
                 rejectIPs.add(config.get("rejectIP" + i));
             }
-            Log.setupLog(accessLogPath, errorLogPath);
+            Logs.setupLog(accessLogPath, errorLogPath);
         } catch (Exception e) {
-            Log.logError("Erreur de chargement de la configuration : " + e.getMessage());
+            Logs.logError("Erreur de chargement de la configuration : " + e.getMessage());
             port = DEFAULT_PORT;
         }
 
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            Log.logAccess("Serveur démarré sur le port " + port);
+            Logs.logAccess("Serveur démarré sur le port " + port);
 
             while (true) {
                 try (Socket socket = serverSocket.accept()) {
@@ -58,11 +58,11 @@ public class HttpServer {
                         if (requestLine == null || requestLine.isEmpty()) {
                             return;
                         }
-                        Log.logAccess(requestLine); //mettre dans un fichier /access.log
+                        Logs.logAccess(requestLine); //mettre dans un fichier /access.log
 
                         String[] requestLineParts = requestLine.split(" ");
                         if (requestLineParts.length < 2) {
-                            Log.logError("Requête invalide : " + requestLine);
+                            Logs.logError("Requête invalide : " + requestLine);
                             continue;
                         }
 
@@ -85,16 +85,16 @@ public class HttpServer {
                         }
 
                     } catch (IOException e) {
-                        Log.logError("Erreur de lecture de la requête : " + e.getMessage());
+                        Logs.logError("Erreur de lecture de la requête : " + e.getMessage());
                     } finally {
                         connectionCount--;
                     }
                 } catch (IOException e) {
-                    Log.logError("Erreur de connection client : " + e.getMessage());
+                    Logs.logError("Erreur de connection client : " + e.getMessage());
                 }
             }
         } catch (IOException e) {
-            Log.logError("Erreur de connection serveur : " + e.getMessage());
+            Logs.logError("Erreur de connection serveur : " + e.getMessage());
         }
     }
 

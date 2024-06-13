@@ -4,7 +4,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-public class Log {
+public class Logs {
     private static Logger accessLogger = Logger.getLogger("AccessLog");
     private static Logger errorLogger = Logger.getLogger("ErrorLog");
 
