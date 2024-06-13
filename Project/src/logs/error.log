@@ -18,3 +18,137 @@ Jun 13, 2024 3:28:31 PM Logs logError
 SEVERE: Connection refusée pour l'adresse IP : 127.0.0.1
 Jun 13, 2024 3:28:31 PM Logs logError
 SEVERE: Connection refusée pour l'adresse IP : 127.0.0.1
+Jun 13, 2024 3:32:24 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 3:32:24 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 3:32:34 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 3:32:34 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 3:32:44 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 3:32:44 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 3:34:36 PM Logs logError
+SEVERE: Fichier non trouvé : src/site/favicon.ico
+Jun 13, 2024 3:34:37 PM Logs logError
+SEVERE: Erreur de lecture de la requête : Connection reset by peer
+Jun 13, 2024 3:34:37 PM Logs logError
+SEVERE: SocketException : Connection reset by peer
+Jun 13, 2024 3:34:41 PM Logs logError
+SEVERE: Erreur de lecture de la requête : Connection reset by peer
+Jun 13, 2024 3:34:41 PM Logs logError
+SEVERE: SocketException : Connection reset by peer
+Jun 13, 2024 3:35:33 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 3:35:33 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 3:35:40 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 3:35:40 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 3:40:13 PM Logs logError
+SEVERE: Erreur de lecture de la requête : Connection reset by peer
+Jun 13, 2024 3:40:13 PM Logs logError
+SEVERE: SocketException : Connection reset by peer
+Jun 13, 2024 3:43:15 PM Logs logError
+SEVERE: Erreur de lecture de la requête : Connection reset by peer
+Jun 13, 2024 3:43:15 PM Logs logError
+SEVERE: SocketException : Connection reset by peer
+Jun 13, 2024 3:52:42 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 3:52:42 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 3:52:48 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 3:52:48 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 3:55:21 PM Logs logError
+SEVERE: Fichier non trouvé : src/site/favicon.ico
+Jun 13, 2024 3:56:17 PM Logs logError
+SEVERE: Erreur de lecture de la requête : Connection reset by peer
+Jun 13, 2024 3:56:17 PM Logs logError
+SEVERE: SocketException : Connection reset by peer
+Jun 13, 2024 3:56:35 PM Logs logError
+SEVERE: Erreur de lecture de la requête : Connection reset by peer
+Jun 13, 2024 3:56:35 PM Logs logError
+SEVERE: SocketException : Connection reset by peer
+Jun 13, 2024 4:02:09 PM Logs logError
+SEVERE: Fichier non trouvé : src/site/favicon.ico
+Jun 13, 2024 4:02:43 PM Logs logError
+SEVERE: Fichier non trouvé : src/site/favicon.ico
+Jun 13, 2024 4:04:12 PM Logs logError
+SEVERE: Fichier non trouvé : src/site/favicon.ico
+Jun 13, 2024 4:04:23 PM Logs logError
+SEVERE: Erreur de lecture de la requête : Connection reset by peer
+Jun 13, 2024 4:04:23 PM Logs logError
+SEVERE: SocketException : Connection reset by peer
+Jun 13, 2024 4:10:08 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:10:08 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:10:19 PM Logs logError
+SEVERE: Fichier non trouvé : src/site/favicon.ico
+Jun 13, 2024 4:10:20 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:10:20 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:10:23 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:10:23 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:12:53 PM Logs logError
+SEVERE: Fichier non trouvé : src/site/src/images/n2.jpg
+Jun 13, 2024 4:12:53 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:12:53 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:12:57 PM Logs logError
+SEVERE: Fichier non trouvé : src/site/src/images/n2.jpg
+Jun 13, 2024 4:12:57 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:12:57 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:15:26 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:15:26 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:15:47 PM Logs logError
+SEVERE: Fichier non trouvé : src/site/aaaaa.html
+Jun 13, 2024 4:15:51 PM Logs logError
+SEVERE: Fichier non trouvé : src/site/aaa.html
+Jun 13, 2024 4:18:21 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:18:21 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:18:28 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:18:28 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:18:31 PM Logs logError
+SEVERE: Erreur de lecture de la requête : Connection reset by peer
+Jun 13, 2024 4:18:31 PM Logs logError
+SEVERE: SocketException : Connection reset by peer
+Jun 13, 2024 4:18:33 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:18:33 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:38:47 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:38:47 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:42:39 PM Logs logError
+SEVERE: Requête vide ou nulle reçue
+Jun 13, 2024 4:56:11 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:56:11 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:56:14 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:56:14 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
+Jun 13, 2024 4:57:17 PM Logs logError
+SEVERE: Erreur de lecture de la requête : Connection reset by peer
+Jun 13, 2024 4:57:17 PM Logs logError
+SEVERE: SocketException : Connection reset by peer
