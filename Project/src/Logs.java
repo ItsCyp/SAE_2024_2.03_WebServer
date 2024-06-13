@@ -8,7 +8,7 @@ public class Logs {
     private static Logger accessLogger = Logger.getLogger("AccessLog");
     private static Logger errorLogger = Logger.getLogger("ErrorLog");
 
-    public static void setupLog(String accessLogPath, String errorLogPath) throws IOException {
+    public static void setupLog(String accessLogPath, String errorLogPath) {
         try {
             File accessLogFile = new File(accessLogPath);
             if (!accessLogFile.exists()) {

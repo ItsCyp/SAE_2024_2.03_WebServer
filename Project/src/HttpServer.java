@@ -7,38 +7,14 @@ import java.util.Map;
 import java.util.Set;
 
 public class HttpServer {
-    private static int port;
-    private static String rootDirectory;
-    private static String accessLogPath;
-    private static String errorLogPath;
-    private static Set<String> acceptIPs = new HashSet<>();
-    private static Set<String> rejectIPs = new HashSet<>();
-    private static final int DEFAULT_PORT = 80;
-    private static int connectionCount = 0;
+    private static ConfigLoader config;
+    private static int connectionCount;
 
     public static void main(String[] args) {
-        try {
-            Map<String, String> config = ConfigLoader.loadConfig("src/config.xml");
-            port = Integer.parseInt(config.get("port"));
-            rootDirectory = config.get("rootDirectory");
-            accessLogPath = config.get("accessLogPath");
-            errorLogPath = config.get("errorLogPath");
-
-            for (int i = 0; config.containsKey("acceptIP" + i); i++) {
-                acceptIPs.add(config.get("acceptIP" + i));
-            }
-
-            for (int i = 0; config.containsKey("rejectIP" + i); i++) {
-                rejectIPs.add(config.get("rejectIP" + i));
-            }
-            Logs.setupLog(accessLogPath, errorLogPath);
-        } catch (Exception e) {
-            Logs.logError("Erreur de chargement de la configuration : " + e.getMessage());
-            port = DEFAULT_PORT;
-        }
-
-        try (ServerSocket serverSocket = new ServerSocket(port)) {
-            Logs.logAccess("Serveur démarré sur le port " + port);
+        config = new ConfigLoader("src/myweb.conf");
+        Logs.setupLog(config.getAccessLog(), config.getErrorLog());
+        try (ServerSocket serverSocket = new ServerSocket(config.getPort())) {
+            Logs.logAccess("Serveur démarré sur le port " + config.getPort() + " avec le répertoire racine " + config.getRootDirectory());
 
             while (true) {
                 Socket socket = serverSocket.accept();
@@ -61,6 +37,7 @@ public class HttpServer {
             connectionCount++;
             try {
                 if (!isAccepted(socket.getInetAddress())) {
+                    Logs.logError("Connection refusée pour l'adresse IP : " + socket.getInetAddress().getHostAddress());
                     socket.close();
                     connectionCount--;
                     return;
@@ -91,7 +68,7 @@ public class HttpServer {
                             filePath = "/index.html";
                         }
 
-                        filePath = rootDirectory + filePath;
+                        filePath = config.getRootDirectory() + filePath;
 
                         File file = new File(filePath);
                         if (file.exists() && !file.isDirectory()) {
@@ -144,10 +121,10 @@ public class HttpServer {
 
     private static boolean isAccepted(InetAddress clientAddress) {
         String clientIP = clientAddress.getHostAddress();
-        if (rejectIPs.contains(clientIP)) {
+        if (config.getReject().contains(clientIP)) {
             return false;
         }
-        if (acceptIPs.isEmpty() || acceptIPs.contains(clientIP)) {
+        if (config.getAccept().isEmpty() || config.getAccept().contains(clientIP)) {
             return true;
         }
         return false;

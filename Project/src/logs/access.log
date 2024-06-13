@@ -1,0 +1,74 @@
+Jun 13, 2024 2:50:47 PM Logs logAccess
+INFO: Serveur démarré sur le port 8080
+Jun 13, 2024 2:50:52 PM Logs logAccess
+INFO: GET / HTTP/1.1
+Jun 13, 2024 2:50:53 PM Logs logAccess
+INFO: GET /miniWeb.html HTTP/1.1
+Jun 13, 2024 2:50:53 PM Logs logAccess
+INFO: GET /images/n2.jpg HTTP/1.1
+Jun 13, 2024 2:50:53 PM Logs logAccess
+INFO: GET /videos/Video.mp4 HTTP/1.1
+Jun 13, 2024 2:50:54 PM Logs logAccess
+INFO: GET /technique.html HTTP/1.1
+Jun 13, 2024 2:50:54 PM Logs logAccess
+INFO: GET /images/l1.gif HTTP/1.1
+Jun 13, 2024 3:05:37 PM Logs logAccess
+INFO: Serveur démarré sur le port 8080 avec le répertoire racine null
+Jun 13, 2024 3:06:02 PM Logs logAccess
+INFO: Serveur démarré sur le port 8080 avec le répertoire racine src/site
+Jun 13, 2024 3:06:21 PM Logs logAccess
+INFO: Serveur démarré sur le port 8080 avec le répertoire racine src/site
+Jun 13, 2024 3:13:49 PM Logs logAccess
+INFO: Serveur démarré sur le port 8080 avec le répertoire racine src/site
+Jun 13, 2024 3:15:07 PM Logs logAccess
+INFO: Serveur démarré sur le port 8080 avec le répertoire racine src/site
+Jun 13, 2024 3:15:39 PM Logs logAccess
+INFO: Serveur démarré sur le port 8080 avec le répertoire racine src/site
+Jun 13, 2024 3:16:02 PM Logs logAccess
+INFO: Serveur démarré sur le port 8080 avec le répertoire racine src/site
+Jun 13, 2024 3:16:18 PM Logs logAccess
+INFO: Serveur démarré sur le port 8080 avec le répertoire racine src/site
+Jun 13, 2024 3:16:56 PM Logs logAccess
+INFO: Serveur démarré sur le port 8080 avec le répertoire racine src/site
+Jun 13, 2024 3:16:57 PM Logs logAccess
+INFO: GET / HTTP/1.1
+Jun 13, 2024 3:16:59 PM Logs logAccess
+INFO: GET /miniWeb.html HTTP/1.1
+Jun 13, 2024 3:16:59 PM Logs logAccess
+INFO: GET /images/n2.jpg HTTP/1.1
+Jun 13, 2024 3:16:59 PM Logs logAccess
+INFO: GET /videos/Video.mp4 HTTP/1.1
+Jun 13, 2024 3:17:03 PM Logs logAccess
+INFO: GET /technique.html HTTP/1.1
+Jun 13, 2024 3:17:03 PM Logs logAccess
+INFO: GET /images/l1.gif HTTP/1.1
+Jun 13, 2024 3:17:05 PM Logs logAccess
+INFO: GET /miniWeb.html HTTP/1.1
+Jun 13, 2024 3:17:05 PM Logs logAccess
+INFO: GET /images/n2.jpg HTTP/1.1
+Jun 13, 2024 3:17:05 PM Logs logAccess
+INFO: GET /videos/Video.mp4 HTTP/1.1
+Jun 13, 2024 3:25:42 PM Logs logAccess
+INFO: GET /miniWeb.html HTTP/1.1
+Jun 13, 2024 3:25:42 PM Logs logAccess
+INFO: GET /images/n2.jpg HTTP/1.1
+Jun 13, 2024 3:25:42 PM Logs logAccess
+INFO: GET /videos/Video.mp4 HTTP/1.1
+Jun 13, 2024 3:28:12 PM Logs logAccess
+INFO: Serveur démarré sur le port 8080 avec le répertoire racine src/site
+Jun 13, 2024 3:28:29 PM Logs logAccess
+INFO: Serveur démarré sur le port 8080 avec le répertoire racine src/site
+Jun 13, 2024 3:28:43 PM Logs logAccess
+INFO: Serveur démarré sur le port 8080 avec le répertoire racine src/site
+Jun 13, 2024 3:28:45 PM Logs logAccess
+INFO: GET / HTTP/1.1
+Jun 13, 2024 3:28:47 PM Logs logAccess
+INFO: GET /miniWeb.html HTTP/1.1
+Jun 13, 2024 3:28:47 PM Logs logAccess
+INFO: GET /images/n2.jpg HTTP/1.1
+Jun 13, 2024 3:28:47 PM Logs logAccess
+INFO: GET /videos/Video.mp4 HTTP/1.1
+Jun 13, 2024 3:28:50 PM Logs logAccess
+INFO: GET /technique.html HTTP/1.1
+Jun 13, 2024 3:28:50 PM Logs logAccess
+INFO: GET /images/l1.gif HTTP/1.1

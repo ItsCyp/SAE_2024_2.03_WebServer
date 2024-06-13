@@ -1,0 +1,20 @@
+Jun 13, 2024 2:50:55 PM Logs logError
+SEVERE: Erreur de lecture de la requête : Connection reset by peer
+Jun 13, 2024 2:50:55 PM Logs logError
+SEVERE: SocketException : Connection reset by peer
+Jun 13, 2024 3:18:01 PM Logs logError
+SEVERE: Erreur de lecture de la requête : Connection reset by peer
+Jun 13, 2024 3:18:01 PM Logs logError
+SEVERE: SocketException : Connection reset by peer
+Jun 13, 2024 3:18:06 PM Logs logError
+SEVERE: Erreur de lecture de la requête : Connection reset by peer
+Jun 13, 2024 3:18:06 PM Logs logError
+SEVERE: SocketException : Connection reset by peer
+Jun 13, 2024 3:26:43 PM Logs logError
+SEVERE: Erreur de lecture de la requête : Connection reset by peer
+Jun 13, 2024 3:26:43 PM Logs logError
+SEVERE: SocketException : Connection reset by peer
+Jun 13, 2024 3:28:31 PM Logs logError
+SEVERE: Connection refusée pour l'adresse IP : 127.0.0.1
+Jun 13, 2024 3:28:31 PM Logs logError
+SEVERE: Connection refusée pour l'adresse IP : 127.0.0.1
