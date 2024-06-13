@@ -504,3 +504,21 @@ Jun 13, 2024 4:57:17 PM Logs logAccess
 INFO: GET /images/n2.jpg HTTP/1.1
 Jun 13, 2024 4:57:17 PM Logs logAccess
 INFO: GET /videos/Video.mp4 HTTP/1.1
+Jun 13, 2024 8:15:49 PM Logs logAccess
+INFO: Serveur démarré sur le port 8080 avec le répertoire racine src/site
+Jun 13, 2024 8:15:52 PM Logs logAccess
+INFO: GET / HTTP/1.1
+Jun 13, 2024 8:15:54 PM Logs logAccess
+INFO: GET /favicon.ico HTTP/1.1
+Jun 13, 2024 8:15:55 PM Logs logAccess
+INFO: GET /miniWeb.html HTTP/1.1
+Jun 13, 2024 8:15:55 PM Logs logAccess
+INFO: GET /images/n2.jpg HTTP/1.1
+Jun 13, 2024 8:15:55 PM Logs logAccess
+INFO: GET /videos/Video.mp4 HTTP/1.1
+Jun 13, 2024 8:15:57 PM Logs logAccess
+INFO: GET /technique.html HTTP/1.1
+Jun 13, 2024 8:15:57 PM Logs logAccess
+INFO: GET /images/l1.gif HTTP/1.1
+Jun 13, 2024 8:15:58 PM Logs logAccess
+INFO: GET /aaaa.html HTTP/1.1

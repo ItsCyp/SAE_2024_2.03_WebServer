@@ -152,3 +152,9 @@ Jun 13, 2024 4:57:17 PM Logs logError
 SEVERE: Erreur de lecture de la requête : Connection reset by peer
 Jun 13, 2024 4:57:17 PM Logs logError
 SEVERE: SocketException : Connection reset by peer
+Jun 13, 2024 8:15:54 PM Logs logError
+SEVERE: Fichier non trouvé : src/site/favicon.ico
+Jun 13, 2024 8:15:55 PM Logs logError
+SEVERE: Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
+Jun 13, 2024 8:15:55 PM Logs logError
+SEVERE: SocketException : An established connection was aborted by the software in your host machine
