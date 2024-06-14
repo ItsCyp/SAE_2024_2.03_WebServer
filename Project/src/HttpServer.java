@@ -25,8 +25,6 @@ public class HttpServer {
         // Configuration des logs d'accès et d'erreur
         Logs.setupLog(config.getAccessLog(), config.getErrorLog());
         try (ServerSocket serverSocket = new ServerSocket(config.getPort())) {
-            // Logs pour indiquer que le serveur a démarré avec les paramètres configurés
-            Logs.logAccess("Serveur démarré sur le port " + config.getPort() + " avec le répertoire racine " + config.getRootDirectory());
 
             // Boucle principale pour accepter les connexions entrantes des clients
             while (true) {

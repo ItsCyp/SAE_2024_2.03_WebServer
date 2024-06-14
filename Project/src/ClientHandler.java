@@ -40,10 +40,12 @@ public class ClientHandler implements Runnable {
     @Override
     public void run() {
         connectionCount++;
+        String clientIP = socket.getInetAddress().getHostAddress();
+
         try {
             if (!isAccepted(socket.getInetAddress())) {
                 // Logs pour indiquer le refus de connexion pour une adresse IP non autorisée
-                Logs.logError("Connection refusée pour l'adresse IP : " + socket.getInetAddress().getHostAddress());
+                Logs.logError("Connection refusée pour l'adresse IP : " + clientIP);
                 socket.close();
                 connectionCount--;
                 return;
@@ -60,7 +62,7 @@ public class ClientHandler implements Runnable {
                     return;
                 }
                 // Logs pour enregistrer la requête HTTP reçue
-                Logs.logAccess(requestLine);
+                Logs.logAccess(requestLine, clientIP);
 
                 String[] requestLineParts = requestLine.split(" ");
                 if (requestLineParts.length < 2) {
