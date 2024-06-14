@@ -123,37 +123,58 @@ public class ClientHandler implements Runnable {
 
         byte[] fileData = Files.readAllBytes(file.toPath());
 
-        if (mimeType.startsWith("image") || mimeType.startsWith("video") || mimeType.startsWith("audio")) {
-            String base64File = encodeFileBase64(fileData);
-            writer.write("HTTP/1.1 200 OK\r\n");
-            writer.write("Content-Type: " + mimeType + "\r\n");
-            writer.write("Content-Length: " + base64File.length() + "\r\n");
-            writer.write("\r\n");
-            writer.write(base64File);
-            writer.flush();
-        } else if (mimeType.equals("text/html")) {
+        if (mimeType.equals("text/html")) {
+            String content = new String(fileData, StandardCharsets.UTF_8);
+            StringBuilder modifiedContent = new StringBuilder();
             Pattern pattern = Pattern.compile("<code\\s+interpreteur=\"(.*?)\">(.*?)</code>");
-            Matcher matcher = pattern.matcher(new String(fileData));
+            Matcher matcher = pattern.matcher(content);
 
-            StringBuilder result = new StringBuilder();
+            int lastEnd = 0;
             while (matcher.find()) {
                 String interpreter = matcher.group(1);
                 String code = matcher.group(2);
 
                 String output = DynamicCodeExecutor.execute(interpreter, code);
-                matcher.appendReplacement(result, output);
+                modifiedContent.append(content, lastEnd, matcher.start()); // Ajoute le contenu avant la balise <code>
+                modifiedContent.append(output); // Ajoute le résultat de l'exécution du code
+                lastEnd = matcher.end();
             }
-            matcher.appendTail(result);
+            modifiedContent.append(content.substring(lastEnd)); // Ajoute le reste du contenu après la dernière balise <code>
 
-            byte[] modifiedContent = result.toString().getBytes(StandardCharsets.UTF_8);
+            byte[] modifiedContentBytes = modifiedContent.toString().getBytes(StandardCharsets.UTF_8);
+
             writer.write("HTTP/1.1 200 OK\r\n");
             writer.write("Content-Type: text/html\r\n");
-            writer.write("Content-Length: " + modifiedContent.length + "\r\n");
+            writer.write("Content-Length: " + modifiedContentBytes.length + "\r\n");
             writer.write("\r\n");
             writer.flush();
 
-            out.write(modifiedContent);
+            out.write(modifiedContentBytes);
+        } else if (mimeType.startsWith("image/") || mimeType.startsWith("video/") || mimeType.startsWith("audio/")) {
+            // Encodage en base64 pour les images, vidéos et sons
+            String base64Data = Base64.getEncoder().encodeToString(fileData);
+
+            String htmlResponse = "<html><body>";
+            if (mimeType.startsWith("image/")) {
+                htmlResponse += "<img src=\"data:" + mimeType + ";base64," + base64Data + "\" />";
+            } else if (mimeType.startsWith("video/")) {
+                htmlResponse += "<video controls><source src=\"data:" + mimeType + ";base64," + base64Data + "\" type=\"" + mimeType + "\"></video>";
+            } else if (mimeType.startsWith("audio/")) {
+                htmlResponse += "<audio controls><source src=\"data:" + mimeType + ";base64," + base64Data + "\" type=\"" + mimeType + "\"></audio>";
+            }
+            htmlResponse += "</body></html>";
+
+            byte[] htmlResponseBytes = htmlResponse.getBytes(StandardCharsets.UTF_8);
+
+            writer.write("HTTP/1.1 200 OK\r\n");
+            writer.write("Content-Type: text/html\r\n");
+            writer.write("Content-Length: " + htmlResponseBytes.length + "\r\n");
+            writer.write("\r\n");
+            writer.flush();
+
+            out.write(htmlResponseBytes);
         } else {
+            // Code pour les autres types de fichiers (non modifiables)
             writer.write("HTTP/1.1 200 OK\r\n");
             writer.write("Content-Type: " + mimeType + "\r\n");
             writer.write("Content-Length: " + fileData.length + "\r\n");
@@ -196,16 +217,6 @@ public class ClientHandler implements Runnable {
             return true;
         }
         return false;
-    }
-
-    /**
-     * Méthode qui encode un tableau de bytes en Base64.
-     *
-     * @param fileData Les données à encoder
-     * @return La représentation Base64 des données
-     */
-    private String encodeFileBase64(byte[] fileData) {
-        return Base64.getEncoder().encodeToString(fileData);
     }
 
     /**

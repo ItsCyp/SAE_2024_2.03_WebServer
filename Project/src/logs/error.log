@@ -1,3 +1,35 @@
 [2024-06-14 09:24:52] Erreur de lecture de la requête : An established connection was aborted by the software in your host machine
 [2024-06-14 09:24:52] SocketException : An established connection was aborted by the software in your host machine
 [2024-06-14 09:27:16] Requête vide ou nulle reçue
+[2024-06-14 09:49:29] Requête vide ou nulle reçue
+[2024-06-14 09:49:32] Erreur de lecture de la requête : Connection reset by peer
+[2024-06-14 09:49:32] SocketException : Connection reset by peer
+[2024-06-14 10:13:47] Requête vide ou nulle reçue
+[2024-06-14 10:13:55] Erreur de lecture de la requête : Connection reset by peer
+[2024-06-14 10:13:55] SocketException : Connection reset by peer
+[2024-06-14 10:14:03] Erreur de lecture de la requête : Connection reset by peer
+[2024-06-14 10:14:03] SocketException : Connection reset by peer
+[2024-06-14 10:15:59] Erreur de lecture de la requête : Connection reset by peer
+[2024-06-14 10:15:59] SocketException : Connection reset by peer
+[2024-06-14 10:17:50] Erreur de lecture de la requête : Connection reset by peer
+[2024-06-14 10:17:50] SocketException : Connection reset by peer
+[2024-06-14 10:17:58] Requête vide ou nulle reçue
+[2024-06-14 14:45:29] Requête vide ou nulle reçue
+[2024-06-14 14:45:36] Erreur de lecture de la requête : Cannot run program "/bin/bash": CreateProcess error=2, The system cannot find the file specified
+[2024-06-14 14:45:36] Erreur de lecture de la requête : Cannot run program "/bin/bash": CreateProcess error=2, The system cannot find the file specified
+[2024-06-14 14:45:36] Erreur de lecture de la requête : Cannot run program "/bin/bash": CreateProcess error=2, The system cannot find the file specified
+[2024-06-14 14:45:38] Erreur de lecture de la requête : Cannot run program "/bin/bash": CreateProcess error=2, The system cannot find the file specified
+[2024-06-14 14:45:39] Requête vide ou nulle reçue
+[2024-06-14 14:45:41] Erreur de lecture de la requête : Cannot run program "/bin/bash": CreateProcess error=2, The system cannot find the file specified
+[2024-06-14 14:45:41] Erreur de lecture de la requête : Cannot run program "/bin/bash": CreateProcess error=2, The system cannot find the file specified
+[2024-06-14 14:45:41] Erreur de lecture de la requête : Cannot run program "/bin/bash": CreateProcess error=2, The system cannot find the file specified
+[2024-06-14 14:45:42] Erreur de lecture de la requête : Cannot run program "/bin/bash": CreateProcess error=2, The system cannot find the file specified
+[2024-06-14 14:45:49] Requête vide ou nulle reçue
+[2024-06-14 14:45:51] Erreur de lecture de la requête : Connection reset by peer
+[2024-06-14 14:45:51] SocketException : Connection reset by peer
+[2024-06-14 14:45:53] Erreur de lecture de la requête : Cannot run program "/bin/bash": CreateProcess error=2, The system cannot find the file specified
+[2024-06-14 14:45:53] Erreur de lecture de la requête : Cannot run program "/bin/bash": CreateProcess error=2, The system cannot find the file specified
+[2024-06-14 14:45:53] Erreur de lecture de la requête : Cannot run program "/bin/bash": CreateProcess error=2, The system cannot find the file specified
+[2024-06-14 14:45:54] Erreur de lecture de la requête : Cannot run program "/bin/bash": CreateProcess error=2, The system cannot find the file specified
+[2024-06-14 14:45:54] Erreur de lecture de la requête : Cannot run program "/bin/bash": CreateProcess error=2, The system cannot find the file specified
+[2024-06-14 14:45:54] Erreur de lecture de la requête : Cannot run program "/bin/bash": CreateProcess error=2, The system cannot find the file specified

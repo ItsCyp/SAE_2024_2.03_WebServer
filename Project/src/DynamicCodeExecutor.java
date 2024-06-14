@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Cette classe exécute du code dynamique en utilisant un interpréteur spécifié.
@@ -13,34 +15,24 @@ public class DynamicCodeExecutor {
      * @param code        Le code à exécuter
      * @return La sortie résultante de l'exécution du code, ou un message d'erreur en cas d'échec
      */
-    public static String execute(String interpreter, String code) {
-        String output = "";
+    public static String execute(String interpreter, String code) throws IOException {
+        List<String> command = new ArrayList<>();
+        command.add(interpreter);
+        command.add("-c");
+        command.add(code);
 
-        try {
-            // Démarrage du processus avec l'interpréteur spécifié
-            Process process = new ProcessBuilder(interpreter.trim()).start();
+        ProcessBuilder processBuilder = new ProcessBuilder(command);
+        Process process = processBuilder.start();
 
-            // Écriture du code à exécuter dans le flux de sortie du processus
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(process.getOutputStream()));
-            writer.write(code);
-            writer.flush();
-            writer.close();
-
-            // Lecture de la sortie du processus (résultat de l'exécution du code)
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                output += line + "\n";
-            }
-            reader.close();
-
-            // Attente de la fin de l'exécution du processus
-            process.waitFor();
-        } catch (IOException | InterruptedException e) {
-            // En cas d'erreur lors de l'exécution du processus
-            output = "Erreur d'exécution : " + e.getMessage();
+        // Lire la sortie du processus
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        StringBuilder output = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            output.append(line);
+            output.append("\n");
         }
 
-        return output; // Retourne la sortie résultante de l'exécution du code ou un message d'erreur
+        return output.toString();
     }
 }
